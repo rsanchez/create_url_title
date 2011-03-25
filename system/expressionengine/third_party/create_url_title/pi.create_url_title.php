@@ -2,7 +2,7 @@
 
 $plugin_info = array(
 	'pi_name' => 'Create URL Title',
-	'pi_version' => '1.0.0',
+	'pi_version' => '1.0.1',
 	'pi_author' => 'Rob Sanchez',
 	'pi_author_url' => 'http://barrettnewton.com/',
 	'pi_description' => 'Creates a url title string with the supplied tag data.',
@@ -13,13 +13,10 @@ class Create_url_title
 {
 	public $return_data = '';
 	
-	public function __construct()
-	{
-		$this->EE = get_instance();
-	}
-	
 	public function Create_url_title()
 	{
+		$this->EE = get_instance();
+		
 		$this->EE->load->helper('url');
 		
 		$separator = NULL;
