@@ -13,7 +13,7 @@ class Create_url_title
 {
 	public $return_data = '';
 	
-	public function Create_url_title()
+	public function Create_url_title($tagdata = '')
 	{
 		$this->EE = get_instance();
 		
@@ -34,8 +34,11 @@ class Create_url_title
 			$separator = $this->EE->config->item('word_separator');
 		}
 		
+		if ( ! $tagdata)
+			$tagdata = $this->EE->TMPL->tagdata;
+		
 		$this->return_data = url_title(
-			trim($this->EE->TMPL->tagdata),
+			trim($tagdata),
 			$separator,
 			(preg_match('/0|no|off|n/i', $this->EE->TMPL->fetch_param('lowercase'))) ? FALSE : TRUE
 		);
