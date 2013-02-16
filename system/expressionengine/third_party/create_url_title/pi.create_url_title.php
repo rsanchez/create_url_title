@@ -34,8 +34,10 @@ class Create_url_title
 			$separator = $this->EE->config->item('word_separator');
 		}
 		
-		if ( ! $tagdata)
+		if (func_num_args() === 0)
+		{
 			$tagdata = $this->EE->TMPL->tagdata;
+		}
 		
 		$this->return_data = url_title(
 			trim($tagdata),
